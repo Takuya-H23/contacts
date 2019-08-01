@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const config = require('config');
-const db = config.get('mongoURI');
+const keys = require('./keys');
+const db = keys.mongoURI;
 
 const connectDB = async () => {
   try {
@@ -11,7 +11,7 @@ const connectDB = async () => {
     });
 
     console.log('MongoDB Connected');
-  } catch(err) {
+  } catch (err) {
     console.error(err.message);
     process.exit(1);
   }
