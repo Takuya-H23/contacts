@@ -445,3 +445,16 @@ table th {
 form input {
   margin-top: 0 !important;
 }
+
+#icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.radio-first-child {
+  margin-right: 5px;
+}
+
+.filter-title {
+  margin-bottom: 25px;
+}

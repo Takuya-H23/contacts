@@ -31,13 +31,17 @@ const ContactItem = ({ contact }) => {
       <ul className="list">
         {email && (
           <li>
-            <FaEnvelopeOpen />
+            <span id="icon">
+              <FaEnvelopeOpen />
+            </span>
             {email}
           </li>
         )}
         {phone && (
           <li>
-            <FaPhone />
+            <span id="icon">
+              <FaPhone />
+            </span>
             {phone}
           </li>
         )}

@@ -23,7 +23,9 @@ const Navbar = ({ title }) => {
       <li>Hello {user && user.name}</li>
       <li>
         <a href="#!" onClick={onLogout}>
-          <FaSignOutAlt />
+          <span id="icon">
+            <FaSignOutAlt />
+          </span>
           <span className="hide-sm">Logout</span>
         </a>
       </li>
@@ -44,7 +46,9 @@ const Navbar = ({ title }) => {
   return (
     <div className="navbar bg-primary">
       <h1>
-        <FaIdCardAlt className="icon" />
+        <span id="icon">
+          <FaIdCardAlt className="icon" />
+        </span>
         {title}
       </h1>
       <ul>

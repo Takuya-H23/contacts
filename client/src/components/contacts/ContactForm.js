@@ -6,6 +6,15 @@ const ContactForm = () => {
 
   const { addContact, current, clearCurrent, updateContact } = contactContext;
 
+  const isValidPhone = phone => {
+    const regex = new RegExp('^[0-9]*$');
+    if (phone === '' || phone.match(regex)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   useEffect(() => {
     if (current !== null) {
       setContact(current);
@@ -36,11 +45,20 @@ const ContactForm = () => {
   const onSubmit = e => {
     e.preventDefault();
     if (current === null) {
-      addContact(contact);
+      if (isValidPhone(contact.phone)) {
+        addContact(contact);
+        clearAll();
+      } else {
+        alert('Please enter a valid phone number');
+      }
     } else {
-      updateContact(contact);
+      if (isValidPhone(contact.phone)) {
+        updateContact(contact);
+        clearAll();
+      } else {
+        alert('Please enter a valid phone number');
+      }
     }
-    clearAll();
   };
 
   const clearAll = () => {
@@ -68,23 +86,25 @@ const ContactForm = () => {
           name="name"
           value={name}
           onChange={onChange}
+          required
         />
       </label>
       <label>
         Email:
         <input
           type="email"
-          placeholder="Email"
+          placeholder="email@mail.com"
           name="email"
           value={email}
           onChange={onChange}
+          required
         />
       </label>
       <label>
         phone:
         <input
           type="text"
-          placeholder="Phone"
+          placeholder="1234567890"
           name="phone"
           value={phone}
           onChange={onChange}
@@ -95,6 +115,7 @@ const ContactForm = () => {
       <label>
         Personal
         <input
+          className="radio-first-child"
           type="radio"
           name="type"
           value="personal"

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useRef, useEffect, Fragment } from 'react';
 import ContactContext from './../../context/contact/contactContext';
 
 const ContactFilter = () => {
@@ -21,14 +21,17 @@ const ContactFilter = () => {
   };
 
   return (
-    <form>
-      <input
-        type="text"
-        ref={text}
-        placeholder="Filter Contacts..."
-        onChange={onChange}
-      />
-    </form>
+    <Fragment>
+      <h2 className="text-primary filter-title">Contacts</h2>
+      <form>
+        <input
+          type="text"
+          ref={text}
+          placeholder="Filter Contacts..."
+          onChange={onChange}
+        />
+      </form>
+    </Fragment>
   );
 };
 
