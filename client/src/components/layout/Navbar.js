@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import { FaIdCardAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import AuthContext from './../../context/auth/authContext';
+import ContactContext from './../../context/contact/contactContext';
 import { FaSignOutAlt } from 'react-icons/fa';
 
 const Navbar = ({ title }) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, logout, user } = authContext;
 
-  const onLogout = () => logout();
+  const contactContext = useContext(ContactContext);
+  const { clearContacts } = contactContext;
+
+  const onLogout = () => {
+    logout();
+    clearContacts();
+  };
 
   const authLinks = (
     <Fragment>
