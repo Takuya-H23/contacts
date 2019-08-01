@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://takuya:F9KmdDN8nOO37trM@cluster0-j5g3r.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "safdoijvcxvkuoi"
+}
